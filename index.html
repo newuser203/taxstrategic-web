@@ -1053,7 +1053,7 @@
   <p class="cta-desc fade-up">Agenda una consulta sin costo y descubre cómo una estrategia tributaria inteligente puede transformar los resultados de tu empresa.</p>
   <div class="cta-actions fade-up">
     <a href="#" class="btn-gold" onclick="openModal('modal-consulta-gratis');return false;">Agendar consulta gratuita</a>
-    <a href="tel:+56912345678" class="btn-outline-cream">Llamar ahora</a>
+    <a href="tel:+51987654321" class="btn-outline-cream">Llamar ahora</a>
   </div>
 </section>
 
@@ -1068,7 +1068,14 @@
           <div class="contact-item-icon">✉️</div>
           <div>
             <div class="contact-item-label">Email</div>
-            <div class="contact-item-val"><a href="mailto:TaxStragetic@gmail.com" style="color: inherit; text-decoration: none; transition: color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">TaxStragetic@gmail.com</a></div>
+            <div class="contact-item-val"><a href="mailto:taxstratetic@gmail.com" style="color: inherit; text-decoration: none; transition: color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">taxstratetic@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Ubicación</div>
+            <div class="contact-item-val">Lima, Perú</div>
           </div>
         </div>
         <div class="contact-item">
@@ -1090,17 +1097,17 @@
             </div>
             <div class="form-group">
               <label>Empresa</label>
-              <input type="text" id="contact-company" placeholder="Empresa S.A.">
+              <input type="text" id="contact-company" placeholder="Empresa S.A.C.">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label>Email *</label>
-              <input type="email" id="contact-email" placeholder="juan@empresa.cl" required>
+              <input type="email" id="contact-email" placeholder="juan@empresa.pe" required>
             </div>
             <div class="form-group">
               <label>Teléfono</label>
-              <input type="tel" id="contact-phone" placeholder="+56 9 ...">
+              <input type="tel" id="contact-phone" placeholder="+51 987 654 321">
             </div>
           </div>
           <div class="form-group">
@@ -1110,7 +1117,7 @@
               <option>Planificación tributaria</option>
               <option>Tributación internacional</option>
               <option>Due diligence / M&A</option>
-              <option>Litigios tributarios</option>
+              <option>Litigios tributarios (SUNAT)</option>
               <option>Tax compliance</option>
               <option>Patrimonio personal</option>
               <option>Otro</option>
@@ -1138,7 +1145,7 @@
 <footer>
   <div class="footer-logo">Tax<span>Strategic</span></div>
   <p>© 2026 TaxStrategic Consultoría Tributaria · Todos los derechos reservados</p>
-  <p>Santiago, Chile</p>
+  <p>Lima, Perú</p>
 </footer>
 
 <script>
@@ -1200,7 +1207,7 @@
       contactSubmitBtn.disabled = true;
 
       try {
-        const response = await fetch('https://formsubmit.co/ajax/TaxStragetic@gmail.com', {
+        const response = await fetch('https://formsubmit.co/ajax/taxstratetic@gmail.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -1237,7 +1244,7 @@
           throw new Error('Error en el envío');
         }
       } catch (err) {
-        errorDiv.textContent = 'Hubo un problema al enviar su mensaje. Por favor contáctenos directamente a TaxStragetic@gmail.com';
+        errorDiv.textContent = 'Hubo un problema al enviar su mensaje. Por favor contáctenos directamente a taxstratetic@gmail.com';
         errorDiv.style.display = 'block';
       } finally {
         contactSubmitBtn.textContent = 'Enviar consulta →';
@@ -1375,7 +1382,7 @@
     const fechaFormato = `${d}/${m}/${y}`;
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/TaxStrategic@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/taxstratetic@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
@@ -1401,7 +1408,7 @@
         throw new Error('Error en envío');
       }
     } catch (err) {
-      errDiv.textContent = 'Hubo un problema al enviar su solicitud. Por favor contáctenos directamente a TaxStragetic@gmail.com';
+      errDiv.textContent = 'Hubo un problema al enviar su solicitud. Por favor contáctenos directamente a taxstratetic@gmail.com';
       errDiv.style.display = 'block';
     } finally {
       submitBtn.textContent = 'Confirmar consulta →';
@@ -1448,7 +1455,7 @@
         <li>Convenios para evitar la doble tributación</li>
         <li>Precios de transferencia — estudios y documentación</li>
         <li>Aplicación de normas BEPS y erosión de base</li>
-        <li>Estructuras de inversión extranjera en Chile</li>
+        <li>Estructuras de inversión extranjera en Perú</li>
         <li>Tributación de rentas de fuente extranjera</li>
         <li>Cumplimiento CFC y normas de transparencia</li>
       </ul>
@@ -1487,14 +1494,14 @@
       <button class="modal-close" onclick="closeModalById('modal-4')">✕</button>
     </div>
     <div class="modal-body">
-      <p>Representación técnica de alto nivel ante el SII, Tribunales Tributarios y Aduaneros, y Corte de Apelaciones, con estrategia orientada a resultados desde el primer día.</p>
+      <p>Representación técnica de alto nivel ante SUNAT, Tribunales Tributarios y Aduaneros, y Poder Judicial, con estrategia orientada a resultados desde el primer día.</p>
       <ul>
-        <li>Respuesta a fiscalizaciones y citaciones del SII</li>
-        <li>Recursos de reposición administrativa</li>
-        <li>Reclamaciones ante Tribunales Tributarios</li>
-        <li>Recursos de apelación y casación</li>
-        <li>Condonaciones y convenios de pago</li>
-        <li>Defensa en procedimientos de cobro ejecutivo</li>
+        <li>Respuesta a fiscalizaciones y citaciones de SUNAT</li>
+        <li>Recursos de reclamaciones y apelaciones</li>
+        <li>Defensa ante el Tribunal Fiscal</li>
+        <li>Procesos contencioso-administrativos</li>
+        <li>Condonaciones y fraccionamientos tributarios</li>
+        <li>Defensa en procedimientos de cobranza coactiva</li>
       </ul>
       <a href="#contacto" class="modal-cta" onclick="closeModalById('modal-4'); openModal('modal-consulta-gratis'); return false;">Agendar consulta →</a>
     </div>
@@ -1511,9 +1518,9 @@
     <div class="modal-body">
       <p>Implementamos modelos de gestión tributaria que aseguran el cumplimiento oportuno de todas las obligaciones fiscales, minimizando el riesgo de multas, intereses y contingencias.</p>
       <ul>
-        <li>Declaraciones de renta, IVA y otros impuestos</li>
-        <li>Libros contables y registros tributarios</li>
-        <li>Informes y declaraciones juradas accesorias</li>
+        <li>Declaraciones de renta, IGV y otros impuestos</li>
+        <li>Libros contables y registros tributarios electrónicos</li>
+        <li>Informes y declaraciones juradas informativas</li>
         <li>Modelo de control tributario interno</li>
         <li>Capacitación al equipo de finanzas y contabilidad</li>
         <li>Revisión preventiva de cumplimiento periódico</li>
@@ -1565,15 +1572,15 @@
             </div>
             <div class="form-group">
               <label>Email *</label>
-              <input type="email" id="bk-email" placeholder="juan@empresa.cl" style="width:100%; padding:12px 14px; border:1px solid rgba(45,90,142,0.2); background:#fff; font-family:'DM Sans',sans-serif; font-size:.9rem; color:var(--ink); outline:none; transition:border-color .25s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(45,90,142,0.2)'">
+              <input type="email" id="bk-email" placeholder="juan@empresa.pe" style="width:100%; padding:12px 14px; border:1px solid rgba(45,90,142,0.2); background:#fff; font-family:'DM Sans',sans-serif; font-size:.9rem; color:var(--ink); outline:none; transition:border-color .25s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(45,90,142,0.2)'">
             </div>
             <div class="form-group">
               <label>Teléfono</label>
-              <input type="tel" id="bk-phone" placeholder="+56 9 ..." style="width:100%; padding:12px 14px; border:1px solid rgba(45,90,142,0.2); background:#fff; font-family:'DM Sans',sans-serif; font-size:.9rem; color:var(--ink); outline:none; transition:border-color .25s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(45,90,142,0.2)'">
+              <input type="tel" id="bk-phone" placeholder="+51 987 654 321" style="width:100%; padding:12px 14px; border:1px solid rgba(45,90,142,0.2); background:#fff; font-family:'DM Sans',sans-serif; font-size:.9rem; color:var(--ink); outline:none; transition:border-color .25s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(45,90,142,0.2)'">
             </div>
             <div class="form-group">
               <label>Empresa</label>
-              <input type="text" id="bk-company" placeholder="Empresa S.A." style="width:100%; padding:12px 14px; border:1px solid rgba(45,90,142,0.2); background:#fff; font-family:'DM Sans',sans-serif; font-size:.9rem; color:var(--ink); outline:none; transition:border-color .25s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(45,90,142,0.2)'">
+              <input type="text" id="bk-company" placeholder="Empresa S.A.C." style="width:100%; padding:12px 14px; border:1px solid rgba(45,90,142,0.2); background:#fff; font-family:'DM Sans',sans-serif; font-size:.9rem; color:var(--ink); outline:none; transition:border-color .25s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(45,90,142,0.2)'">
             </div>
             <div class="form-group">
               <label>Área de interés</label>
@@ -1582,7 +1589,7 @@
                 <option>Planificación tributaria</option>
                 <option>Tributación internacional</option>
                 <option>Due diligence / M&A</option>
-                <option>Litigios tributarios</option>
+                <option>Litigios tributarios (SUNAT)</option>
                 <option>Tax compliance</option>
                 <option>Patrimonio personal</option>
                 <option>Otro</option>
@@ -1836,11 +1843,11 @@
 let chatOpen = false, leadDone = false, turns = 0;
 let history = [];
 
-const SYS = `Eres el asistente virtual de TaxStrategic, consultora tributaria boutique especializada en asesoría tributaria de alto nivel con estándares internacionales.
+const SYS = `Eres el asistente virtual de TaxStrategic, consultora tributaria boutique especializada en asesoría tributaria de alto nivel con estándares internacionales en Perú.
 
 Tu misión: atender consultas iniciales de prospectos con calidez y profesionalismo, y motivarles a agendar una reunión o llamada de consulta gratuita.
 
-Servicios: planificación tributaria, tributación internacional, due diligence M&A, litigios ante el SII, tax compliance, planificación patrimonial.
+Servicios: planificación tributaria, tributación internacional, due diligence M&A, litigios ante SUNAT y Tribunal Fiscal, tax compliance, planificación patrimonial.
 
 Reglas:
 - Responde en español, de forma breve (máximo 3 oraciones)
@@ -1858,12 +1865,12 @@ function toggleChat() {
 
 function initChat() {
   setTimeout(() => addBot("¡Hola! Soy el asistente de TaxStrategic. ¿En qué área tributaria puedo orientarte hoy?"), 400);
-  setTimeout(() => showQR(["Planificación tributaria","M&A / Due diligence","Litigio SII","Tributación internacional","Otra consulta"]), 900);
+  setTimeout(() => showQR(["Planificación tributaria","M&A / Due diligence","Litigio SUNAT","Tributación internacional","Otra consulta"]), 900);
 }
 
 function addBot(txt, form) {
   const c = document.getElementById('cmsgs');
-  const t = new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'});
+  const t = new Date().toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'});
   const d = document.createElement('div');
   d.className = 'msg bot';
   if (form) {
@@ -1876,7 +1883,7 @@ function addBot(txt, form) {
 
 function addUser(txt) {
   const c = document.getElementById('cmsgs');
-  const t = new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'});
+  const t = new Date().toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'});
   const d = document.createElement('div');
   d.className = 'msg user';
   d.innerHTML = `<div class="msg-bub">${txt}</div><span class="msg-time">${t}</span>`;
@@ -1919,22 +1926,22 @@ async function sendChat(forced) {
     const query = txt.toLowerCase();
     let reply = "";
 
-    if (query.includes("planific") || query.includes("estrateg") || query.includes("optimiza") || query.includes("holding") || query.includes("renta") || query.includes("iva")) {
-      reply = "Diseñamos estructuras tributarias eficientes y holding empresariales que optimizan la carga fiscal dentro del marco legal. ¿Le interesaría coordinar una llamada con nuestro equipo de consultores para analizar su caso?";
+    if (query.includes("planific") || query.includes("estrateg") || query.includes("optimiza") || query.includes("holding") || query.includes("renta") || query.includes("igv") || query.includes("iva")) {
+      reply = "Diseñamos estructuras tributarias eficientes y holding empresariales que optimizan la carga fiscal dentro del marco legal vigente en Perú. ¿Le interesaría coordinar una llamada con nuestro equipo de consultores para analizar su caso?";
     } else if (query.includes("internac") || query.includes("beps") || query.includes("doble tri") || query.includes("precios") || query.includes("transferencia")) {
       reply = "Asesoramos en convenios de doble tributación, precios de transferencia y estructuración de inversiones transfronterizas. ¿Desea que evaluemos su estructura actual en una reunión?";
     } else if (query.includes("due diligence") || query.includes("m&a") || query.includes("compra") || query.includes("venta") || query.includes("fusion") || query.includes("adquisic")) {
       reply = "Realizamos revisiones exhaustivas (Due Diligence) para identificar contingencias y pasivos fiscales ocultos antes de concretar una transacción. ¿Está planificando alguna operación comercial?";
-    } else if (query.includes("litigio") || query.includes("defensa") || query.includes("sii") || query.includes("reclamac") || query.includes("tribunal") || query.includes("reposic")) {
-      reply = "Contamos con amplia trayectoria defendiendo contribuyentes en fiscalizaciones y litigios ante el SII y Tribunales Tributarios. ¿Tiene alguna fiscalización activa en este momento?";
+    } else if (query.includes("litigio") || query.includes("defensa") || query.includes("sunat") || query.includes("sii") || query.includes("reclamac") || query.includes("tribunal") || query.includes("coactiva")) {
+      reply = "Contamos con amplia trayectoria defendiendo contribuyentes en fiscalizaciones, reclamaciones y procesos ante la SUNAT y el Tribunal Fiscal. ¿Tiene alguna fiscalización activa en este momento?";
     } else if (query.includes("compliance") || query.includes("cumplimiento") || query.includes("contabil") || query.includes("mensual") || query.includes("declarac")) {
-      reply = "Nos encargamos de su cumplimiento tributario integral (renta, IVA, declaraciones juradas) bajo estándares internacionales. ¿Busca externalizar o auditar este proceso?";
+      reply = "Nos encargamos de su cumplimiento tributario integral (renta, IGV, libros electrónicos, DJ anual) bajo estándares internacionales. ¿Busca externalizar o auditar este proceso?";
     } else if (query.includes("patrimonio") || query.includes("sucesion") || query.includes("herencia") || query.includes("persona") || query.includes("familia") || query.includes("donac")) {
       reply = "Ayudamos a familias y personas de alto patrimonio a estructurar sus inversiones y planificar su sucesión con eficiencia y protección legal. ¿Tiene consultas específicas sobre su patrimonio?";
     } else if (query.includes("contacto") || query.includes("cita") || query.includes("reunion") || query.includes("agendar") || query.includes("llamar") || query.includes("telefono")) {
       reply = "¡Perfecto! Puede dejarnos sus datos de contacto en el formulario que se desplegará a continuación para coordinar una reunión de consulta directa.";
     } else {
-      reply = "En TaxStrategic ofrecemos consultoría tributaria premium de estándar internacional. Para darle una orientación adecuada a su caso, le sugiero conversar brevemente con uno de nuestros especialistas.";
+      reply = "En TaxStrategic ofrecemos consultoría tributaria premium de estándar internacional en Perú. Para darle una orientación adecuada a su caso, le sugiero conversar brevemente con uno de nuestros especialistas.";
     }
 
     history.push({role:'assistant', content: reply});
@@ -1948,7 +1955,7 @@ async function sendChat(forced) {
       }, 1000);
     } else if (!leadDone) {
       setTimeout(() => {
-        showQR(["Estrategia Fiscal", "Due Diligence M&A", "Litigio SII", "Agendar consulta"]);
+        showQR(["Estrategia Fiscal", "Due Diligence M&A", "Litigio SUNAT", "Agendar consulta"]);
       }, 1200);
     }
   }, 800);
@@ -2009,9 +2016,9 @@ const pageContent = {
     'svc-3-name': 'Due Diligence Tributario',
     'svc-3-desc': 'Revisión exhaustiva de contingencias fiscales en procesos de M&A. Identificación de pasivos ocultos y evaluación del riesgo tributario pre-transaccional para decisiones informadas.',
     'svc-4-name': 'Litigios & Defensa Tributaria',
-    'svc-4-desc': 'Representación ante el SII, Tribunales Tributarios y Aduaneros, y Corte de Apelaciones. Gestión de reclamaciones y recursos con estrategia técnica de alto nivel.',
+    'svc-4-desc': 'Representación ante SUNAT, Tribunales Tributarios y Aduaneros, y Poder Judicial. Gestión de reclamaciones y recursos con estrategia técnica de alto nivel.',
     'svc-5-name': 'Tax Compliance & Gestión',
-    'svc-5-desc': 'Cumplimiento tributario integral: declaraciones, libros contables, obligaciones accesorias. Implementación de modelos de gestión que minimizan el riesgo de incumplimiento.',
+    'svc-5-desc': 'Cumplimiento tributario integral: declaraciones de renta, IGV, libros contables electrónicos. Implementación de modelos de gestión que minimizan el riesgo de incumplimiento.',
     'svc-6-name': 'Patrimonio & Personas',
     'svc-6-desc': 'Estructuración patrimonial para personas naturales y familias de alto patrimonio. Planificación sucesoria con eficiencia tributaria y protección de activos a largo plazo.',
     'svc-more': 'Más información →',
@@ -2047,11 +2054,13 @@ const pageContent = {
     'contact-label': 'Contacto',
     'contact-title': 'Hablemos de su situación tributaria',
     'contact-email-label': 'Email',
+    'contact-location-label': 'Ubicación',
+    'contact-location-val': 'Lima, Perú',
     'contact-hours-label': 'Horario',
     'contact-hours': 'Soporte 24/7',
     // Footer
     'footer-copy': '© 2026 TaxStrategic Consultoría Tributaria · Todos los derechos reservados',
-    'footer-loc': 'Santiago, Chile',
+    'footer-loc': 'Lima, Perú',
     // Chat
     'chat-title': 'Asistente TaxStrategic',
     'chat-status': 'En línea ahora',
@@ -2059,15 +2068,15 @@ const pageContent = {
   },
   en: {
     // Hero
-    'hero-label': 'Premium Tax Consulting',
+    'hero-label': 'Premium Tax Advisory',
     'hero-h1': 'Tax strategy<br>that <em>protects</em><br>your wealth',
-    'hero-desc': 'High-level tax advisory with the rigor of world-class firms and the agility of a specialized boutique. Tailored solutions for companies and high net-worth individuals.',
+    'hero-desc': 'High-level tax advisory with the rigor of world-class firms and the agility of a specialized boutique. Tailored solutions for companies and high-net-worth individuals.',
     'hero-btn-primary': 'Schedule consultation',
     'hero-btn-ghost': 'View services',
     'stat-1': 'Years of experience',
     'stat-2': 'World-class firms',
     'stat-3': 'Personalized focus',
-    'stat-4': 'Tax vision',
+    'stat-4': '360° Tax vision',
     'hero-quote': '"Smart tax planning is not evasion: it is fully exercising the rights the law grants."',
     'hero-quote-cite': 'TaxStrategic · Work philosophy',
     // Services section
@@ -2080,9 +2089,9 @@ const pageContent = {
     'svc-3-name': 'Tax Due Diligence',
     'svc-3-desc': 'Comprehensive review of tax contingencies in M&A processes. Identification of hidden liabilities and pre-transactional tax risk assessment for informed decisions.',
     'svc-4-name': 'Tax Litigation & Defense',
-    'svc-4-desc': 'Representation before the IRS, Tax and Customs Courts, and Court of Appeals. Claim management and appeals with high-level technical strategy.',
+    'svc-4-desc': 'Representation before SUNAT, Tax Courts, and the Judiciary. Claim management and appeals with high-level technical strategy.',
     'svc-5-name': 'Tax Compliance & Management',
-    'svc-5-desc': 'Comprehensive tax compliance: returns, accounting records, ancillary obligations. Implementation of management models that minimize non-compliance risk.',
+    'svc-5-desc': 'Comprehensive tax compliance: income tax, VAT/IGV returns, electronic accounting books. Implementation of management models that minimize non-compliance risk.',
     'svc-6-name': 'Wealth & Individuals',
     'svc-6-desc': 'Wealth structuring for individuals and high net-worth families. Estate planning with tax efficiency and long-term asset protection.',
     'svc-more': 'More information →',
@@ -2118,11 +2127,13 @@ const pageContent = {
     'contact-label': 'Contact',
     'contact-title': 'Let\'s talk about your tax situation',
     'contact-email-label': 'Email',
+    'contact-location-label': 'Location',
+    'contact-location-val': 'Lima, Peru',
     'contact-hours-label': 'Hours',
     'contact-hours': '24/7 Support',
     // Footer
-    'footer-copy': '© 2026 TaxStrategic Tax Consulting · All rights reserved',
-    'footer-loc': 'Santiago, Chile',
+    'footer-copy': '© 2026 TaxStrategic Tax Advisory · All rights reserved',
+    'footer-loc': 'Lima, Peru',
     // Chat
     'chat-title': 'TaxStrategic Assistant',
     'chat-status': 'Online now',
@@ -2254,8 +2265,10 @@ function applyTranslations(lang) {
   const contactItems = document.querySelectorAll('.contact-item-label');
   const contactVals = document.querySelectorAll('.contact-item-val');
   if (contactItems[0]) contactItems[0].textContent = t['contact-email-label'];
-  if (contactItems[1]) contactItems[1].textContent = t['contact-hours-label'];
-  if (contactVals[1]) contactVals[1].textContent = t['contact-hours'];
+  if (contactItems[1]) contactItems[1].textContent = t['contact-location-label'];
+  if (contactVals[1]) contactVals[1].textContent = t['contact-location-val'];
+  if (contactItems[2]) contactItems[2].textContent = t['contact-hours-label'];
+  if (contactVals[2]) contactVals[2].textContent = t['contact-hours'];
 
   // Footer
   const footerPs = document.querySelectorAll('footer p');
