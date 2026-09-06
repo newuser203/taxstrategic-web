@@ -65,6 +65,98 @@
   }
   .nav-cta:hover { background: var(--gold); color: var(--cream); }
 
+  /* ── HAMBURGER BUTTON ── */
+  .hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; width: 40px; height: 40px;
+    background: transparent; border: none; cursor: pointer;
+    padding: 4px; z-index: 200;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--ink);
+    transition: all .35s cubic-bezier(.4,0,.2,1);
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE NAV DRAWER ── */
+  .mobile-nav {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 150;
+    pointer-events: none;
+  }
+  .mobile-nav-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(26,37,53,0.55);
+    opacity: 0; transition: opacity .35s;
+    backdrop-filter: blur(4px);
+  }
+  .mobile-nav-drawer {
+    position: absolute; top: 0; left: 0; right: 0;
+    background: rgba(243,246,250,0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(45,90,142,0.15);
+    padding: 0 6vw 32px;
+    transform: translateY(-110%);
+    transition: transform .4s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 8px 40px rgba(26,37,53,0.15);
+  }
+  .mobile-nav-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 0 20px;
+    border-bottom: 1px solid rgba(45,90,142,0.1);
+    margin-bottom: 24px;
+  }
+  .mobile-nav-links {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .mobile-nav-links li a {
+    display: block; padding: 16px 0;
+    font-size: 1rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    border-bottom: 1px solid rgba(45,90,142,0.08);
+    transition: color .25s, padding-left .25s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .mobile-nav-links li a:hover { color: var(--gold); padding-left: 8px; }
+  .mobile-nav-footer {
+    display: flex; flex-direction: column; gap: 12px;
+    margin-top: 28px;
+  }
+  .mobile-lang-btn {
+    font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+    padding: 12px 20px; border: 1px solid rgba(45,90,142,0.35);
+    background: transparent; color: var(--gold);
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all .3s; text-align: center;
+  }
+  .mobile-lang-btn:hover { background: var(--gold); color: var(--cream); }
+  .mobile-cta-btn {
+    font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+    padding: 14px 20px; border: none;
+    background: var(--gold); color: var(--cream);
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background .3s; text-align: center;
+  }
+  .mobile-cta-btn:hover { background: var(--gold-light); }
+
+  .mobile-nav.open { pointer-events: all; }
+  .mobile-nav.open .mobile-nav-backdrop { opacity: 1; }
+  .mobile-nav.open .mobile-nav-drawer { transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .nav-links { display: none; }
+    .nav-right-desktop { display: none !important; }
+    .mobile-nav { display: block; }
+  }
+
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
@@ -705,11 +797,37 @@
     <li><a href="#diferencial" onclick="scrollTo('diferencial');return false;" data-i18n="nav-diferencial">Diferencial</a></li>
     <li><a href="#contacto" onclick="scrollTo('contacto');return false;" data-i18n="nav-contacto">Contacto</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:12px;">
+  <div class="nav-right-desktop" style="display:flex;align-items:center;gap:12px;">
     <button id="lang-toggle" onclick="toggleLang()" title="Switch language" style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(45,90,142,0.4);background:transparent;color:var(--gold);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .3s;display:flex;align-items:center;gap:6px;">🌐 EN</button>
     <button class="nav-cta" onclick="openModal('modal-consulta-gratis')" data-i18n="nav-cta">Consulta gratuita</button>
   </div>
+  <!-- Hamburger button (mobile only) -->
+  <button class="hamburger" id="hamburger-btn" onclick="toggleMobileNav()" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav-backdrop" onclick="closeMobileNav()"></div>
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <a href="#inicio" class="nav-logo" onclick="closeMobileNav(); scrollTo('inicio'); return false;">Tax<span>Strategic</span></a>
+      <button class="hamburger open" onclick="closeMobileNav()" aria-label="Cerrar menú" style="display:flex;">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#servicios" onclick="closeMobileNav(); scrollTo('servicios'); return false;" data-i18n="nav-servicios">Servicios</a></li>
+      <li><a href="#diferencial" onclick="closeMobileNav(); scrollTo('diferencial'); return false;" data-i18n="nav-diferencial">Diferencial</a></li>
+      <li><a href="#contacto" onclick="closeMobileNav(); scrollTo('contacto'); return false;" data-i18n="nav-contacto">Contacto</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <button class="mobile-lang-btn" id="mobile-lang-toggle" onclick="toggleLang()">🌐 EN</button>
+      <button class="mobile-cta-btn" onclick="closeMobileNav(); openModal('modal-consulta-gratis');" data-i18n="nav-cta">Consulta gratuita</button>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="inicio">
@@ -2017,13 +2135,41 @@ let currentLang = 'es';
 function toggleLang() {
   currentLang = currentLang === 'es' ? 'en' : 'es';
   applyTranslations(currentLang);
-  // Update button
+  const label = currentLang === 'es' ? '🌐 EN' : '🌐 ES';
+  // Update desktop button
   const btn = document.getElementById('lang-toggle');
-  btn.textContent = currentLang === 'es' ? '🌐 EN' : '🌐 ES';
-  // Add smooth flash effect
-  btn.style.background = 'var(--gold)';
-  btn.style.color = 'var(--cream)';
-  setTimeout(() => { btn.style.background = 'transparent'; btn.style.color = 'var(--gold)'; }, 350);
+  if (btn) {
+    btn.textContent = label;
+    btn.style.background = 'var(--gold)';
+    btn.style.color = 'var(--cream)';
+    setTimeout(() => { btn.style.background = 'transparent'; btn.style.color = 'var(--gold)'; }, 350);
+  }
+  // Update mobile button
+  const mobileBtn = document.getElementById('mobile-lang-toggle');
+  if (mobileBtn) {
+    mobileBtn.textContent = label;
+  }
+}
+
+function toggleMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  const btn = document.getElementById('hamburger-btn');
+  const isOpen = nav.classList.contains('open');
+  if (isOpen) {
+    closeMobileNav();
+  } else {
+    nav.classList.add('open');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  const btn = document.getElementById('hamburger-btn');
+  nav.classList.remove('open');
+  btn.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
 function applyTranslations(lang) {
