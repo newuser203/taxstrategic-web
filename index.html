@@ -701,11 +701,14 @@
 <nav id="nav">
   <a href="#inicio" class="nav-logo" onclick="scrollTo('inicio');return false;">Tax<span>Strategic</span></a>
   <ul class="nav-links">
-    <li><a href="#servicios" onclick="scrollTo('servicios');return false;">Servicios</a></li>
-    <li><a href="#diferencial" onclick="scrollTo('diferencial');return false;">Diferencial</a></li>
-    <li><a href="#contacto" onclick="scrollTo('contacto');return false;">Contacto</a></li>
+    <li><a href="#servicios" onclick="scrollTo('servicios');return false;" data-i18n="nav-servicios">Servicios</a></li>
+    <li><a href="#diferencial" onclick="scrollTo('diferencial');return false;" data-i18n="nav-diferencial">Diferencial</a></li>
+    <li><a href="#contacto" onclick="scrollTo('contacto');return false;" data-i18n="nav-contacto">Contacto</a></li>
   </ul>
-  <button class="nav-cta" onclick="openModal('modal-consulta-gratis')">Consulta gratuita</button>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <button id="lang-toggle" onclick="toggleLang()" title="Switch language" style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(45,90,142,0.4);background:transparent;color:var(--gold);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .3s;display:flex;align-items:center;gap:6px;">🌐 EN</button>
+    <button class="nav-cta" onclick="openModal('modal-consulta-gratis')" data-i18n="nav-cta">Consulta gratuita</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -947,7 +950,7 @@
           <div class="contact-item-icon">✉️</div>
           <div>
             <div class="contact-item-label">Email</div>
-            <div class="contact-item-val"><a href="mailto:luis.trujillo@pucp.pe" style="color: inherit; text-decoration: none; transition: color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">luis.trujillo@pucp.pe</a></div>
+            <div class="contact-item-val"><a href="mailto:TaxStragetic@gmail.com" style="color: inherit; text-decoration: none; transition: color .25s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">TaxStragetic@gmail.com</a></div>
           </div>
         </div>
         <div class="contact-item">
@@ -1079,7 +1082,7 @@
       contactSubmitBtn.disabled = true;
 
       try {
-        const response = await fetch('https://formsubmit.co/ajax/luis.trujillo@pucp.pe', {
+        const response = await fetch('https://formsubmit.co/ajax/TaxStragetic@gmail.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -1116,7 +1119,7 @@
           throw new Error('Error en el envío');
         }
       } catch (err) {
-        errorDiv.textContent = 'Hubo un problema al enviar su mensaje. Por favor contáctenos directamente a luis.trujillo@pucp.pe';
+        errorDiv.textContent = 'Hubo un problema al enviar su mensaje. Por favor contáctenos directamente a TaxStragetic@gmail.com';
         errorDiv.style.display = 'block';
       } finally {
         contactSubmitBtn.textContent = 'Enviar consulta →';
@@ -1254,7 +1257,7 @@
     const fechaFormato = `${d}/${m}/${y}`;
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/luis.trujillo@pucp.pe', {
+      const response = await fetch('https://formsubmit.co/ajax/TaxStrategic@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
@@ -1280,7 +1283,7 @@
         throw new Error('Error en envío');
       }
     } catch (err) {
-      errDiv.textContent = 'Hubo un problema al enviar su solicitud. Por favor contáctenos directamente a luis.trujillo@pucp.pe';
+      errDiv.textContent = 'Hubo un problema al enviar su solicitud. Por favor contáctenos directamente a TaxStragetic@gmail.com';
       errDiv.style.display = 'block';
     } finally {
       submitBtn.textContent = 'Confirmar consulta →';
@@ -1839,6 +1842,297 @@ function submitLead() {
   if (!n || !e) { alert('Por favor ingrese nombre y email.'); return; }
   document.querySelectorAll('.lead-form').forEach(f => f.closest('.msg').remove());
   addBot(`¡Perfecto, ${n}! Sus datos han quedado registrados. Nuestro equipo se pondrá en contacto muy pronto. ¡Hasta pronto!`);
+}
+</script>
+
+<!-- LANGUAGE TOGGLE SCRIPT -->
+<script>
+// ── TRANSLATIONS ──
+const translations = {
+  es: {
+    'nav-servicios': 'Servicios',
+    'nav-diferencial': 'Diferencial',
+    'nav-contacto': 'Contacto',
+    'nav-cta': 'Consulta gratuita',
+    'lang-btn': '🌐 EN',
+    'lang-btn-current': 'ES'
+  },
+  en: {
+    'nav-servicios': 'Services',
+    'nav-diferencial': 'Differentiator',
+    'nav-contacto': 'Contact',
+    'nav-cta': 'Free consultation',
+    'lang-btn': '🌐 ES',
+    'lang-btn-current': 'EN'
+  }
+};
+
+const pageContent = {
+  es: {
+    // Hero
+    'hero-label': 'Consultoría Tributaria Premium',
+    'hero-h1': 'Estrategia fiscal<br>que <em>protege</em><br>tu patrimonio',
+    'hero-desc': 'Asesoría tributaria de alto nivel con el rigor de las firmas de clase mundial y la agilidad de una boutique especializada. Soluciones a medida para empresas y personas de alto patrimonio.',
+    'hero-btn-primary': 'Agendar consulta',
+    'hero-btn-ghost': 'Ver servicios',
+    'stat-1': 'Años de experiencia',
+    'stat-2': 'Firmas de clase mundial',
+    'stat-3': 'Enfoque personalizado',
+    'stat-4': 'Visión tributaria',
+    'hero-quote': '"La planificación tributaria inteligente no es evasión: es ejercer plenamente los derechos que la ley otorga."',
+    'hero-quote-cite': 'TaxStrategic · Filosofía de trabajo',
+    // Services section
+    'services-label': 'Áreas de práctica',
+    'services-title': 'Soluciones tributarias<br>para cada <em>desafío</em>',
+    'svc-1-name': 'Planificación & Estrategia Fiscal',
+    'svc-1-desc': 'Diseño de estructuras tributarias eficientes que maximizan el retorno neto del negocio dentro del marco legal vigente. Análisis integral de la carga impositiva y oportunidades de optimización.',
+    'svc-2-name': 'Tributación Internacional',
+    'svc-2-desc': 'Asesoría en convenios de doble tributación, precios de transferencia, BEPS y estructuras de inversión transfronteriza. Cumplimiento normativo en operaciones con el exterior.',
+    'svc-3-name': 'Due Diligence Tributario',
+    'svc-3-desc': 'Revisión exhaustiva de contingencias fiscales en procesos de M&A. Identificación de pasivos ocultos y evaluación del riesgo tributario pre-transaccional para decisiones informadas.',
+    'svc-4-name': 'Litigios & Defensa Tributaria',
+    'svc-4-desc': 'Representación ante el SII, Tribunales Tributarios y Aduaneros, y Corte de Apelaciones. Gestión de reclamaciones y recursos con estrategia técnica de alto nivel.',
+    'svc-5-name': 'Tax Compliance & Gestión',
+    'svc-5-desc': 'Cumplimiento tributario integral: declaraciones, libros contables, obligaciones accesorias. Implementación de modelos de gestión que minimizan el riesgo de incumplimiento.',
+    'svc-6-name': 'Patrimonio & Personas',
+    'svc-6-desc': 'Estructuración patrimonial para personas naturales y familias de alto patrimonio. Planificación sucesoria con eficiencia tributaria y protección de activos a largo plazo.',
+    'svc-more': 'Más información →',
+    // Differentiator
+    'dif-label': 'Por qué elegirnos',
+    'dif-title': 'La diferencia<br>está en <em>los detalles</em>',
+    'dif-1-title': 'Estándares de clase mundial',
+    'dif-1-desc': 'Metodología de trabajo y estándares de calidad de las firmas de consultoría más reconocidas a nivel global.',
+    'dif-2-title': 'Atención directiva personalizada',
+    'dif-2-desc': 'Usted siempre trata con el socio. Sin intermediarios, sin delegación a juniors. Su caso, en manos expertas desde el primer día.',
+    'dif-3-title': 'Soluciones, no informes',
+    'dif-3-desc': 'Entregamos estrategias accionables y acompañamiento en la implementación, no solo documentos técnicos que quedan en el cajón.',
+    'dif-4-title': 'Visión multidisciplinaria',
+    'dif-4-desc': 'Integramos la tributación con la estrategia de negocio, el derecho comercial y la planificación financiera para una visión 360°.',
+    // Process
+    'proc-label': 'Cómo trabajamos',
+    'proc-title': 'Nuestro proceso <em>de trabajo</em>',
+    'step-1-name': 'Diagnóstico',
+    'step-1-desc': 'Análisis exhaustivo de la situación tributaria actual, identificando riesgos y oportunidades de mejora.',
+    'step-2-name': 'Estrategia',
+    'step-2-desc': 'Diseño de la solución óptima, evaluando alternativas y su impacto fiscal, financiero y legal.',
+    'step-3-name': 'Implementación',
+    'step-3-desc': 'Ejecución técnica y jurídica con acompañamiento directo en cada etapa del proceso.',
+    'step-4-name': 'Monitoreo',
+    'step-4-desc': 'Seguimiento continuo y actualización ante cambios normativos que puedan afectar la estrategia definida.',
+    // CTA
+    'cta-label': '¿Listo para comenzar?',
+    'cta-title': 'Su próxima decisión<br>tributaria merece <em>los mejores</em>',
+    'cta-desc': 'Agenda una consulta sin costo y descubre cómo una estrategia tributaria inteligente puede transformar los resultados de tu empresa.',
+    'cta-btn1': 'Agendar consulta gratuita',
+    'cta-btn2': 'Llamar ahora',
+    // Contact
+    'contact-label': 'Contacto',
+    'contact-title': 'Hablemos de su situación tributaria',
+    'contact-email-label': 'Email',
+    'contact-hours-label': 'Horario',
+    'contact-hours': 'Soporte 24/7',
+    // Footer
+    'footer-copy': '© 2026 TaxStrategic Consultoría Tributaria · Todos los derechos reservados',
+    'footer-loc': 'Santiago, Chile',
+    // Chat
+    'chat-title': 'Asistente TaxStrategic',
+    'chat-status': 'En línea ahora',
+    'chat-placeholder': 'Escribe tu consulta...'
+  },
+  en: {
+    // Hero
+    'hero-label': 'Premium Tax Consulting',
+    'hero-h1': 'Tax strategy<br>that <em>protects</em><br>your wealth',
+    'hero-desc': 'High-level tax advisory with the rigor of world-class firms and the agility of a specialized boutique. Tailored solutions for companies and high net-worth individuals.',
+    'hero-btn-primary': 'Schedule consultation',
+    'hero-btn-ghost': 'View services',
+    'stat-1': 'Years of experience',
+    'stat-2': 'World-class firms',
+    'stat-3': 'Personalized focus',
+    'stat-4': 'Tax vision',
+    'hero-quote': '"Smart tax planning is not evasion: it is fully exercising the rights the law grants."',
+    'hero-quote-cite': 'TaxStrategic · Work philosophy',
+    // Services section
+    'services-label': 'Practice areas',
+    'services-title': 'Tax solutions<br>for every <em>challenge</em>',
+    'svc-1-name': 'Tax Planning & Strategy',
+    'svc-1-desc': 'Design of efficient tax structures that maximize net business returns within the current legal framework. Comprehensive analysis of tax burden and optimization opportunities.',
+    'svc-2-name': 'International Taxation',
+    'svc-2-desc': 'Advisory on double taxation treaties, transfer pricing, BEPS and cross-border investment structures. Regulatory compliance for foreign operations.',
+    'svc-3-name': 'Tax Due Diligence',
+    'svc-3-desc': 'Comprehensive review of tax contingencies in M&A processes. Identification of hidden liabilities and pre-transactional tax risk assessment for informed decisions.',
+    'svc-4-name': 'Tax Litigation & Defense',
+    'svc-4-desc': 'Representation before the IRS, Tax and Customs Courts, and Court of Appeals. Claim management and appeals with high-level technical strategy.',
+    'svc-5-name': 'Tax Compliance & Management',
+    'svc-5-desc': 'Comprehensive tax compliance: returns, accounting records, ancillary obligations. Implementation of management models that minimize non-compliance risk.',
+    'svc-6-name': 'Wealth & Individuals',
+    'svc-6-desc': 'Wealth structuring for individuals and high net-worth families. Estate planning with tax efficiency and long-term asset protection.',
+    'svc-more': 'More information →',
+    // Differentiator
+    'dif-label': 'Why choose us',
+    'dif-title': 'The difference<br>is in <em>the details</em>',
+    'dif-1-title': 'World-class standards',
+    'dif-1-desc': 'Work methodology and quality standards from the world\'s most renowned consulting firms.',
+    'dif-2-title': 'Personalized senior attention',
+    'dif-2-desc': 'You always deal with the partner. No intermediaries, no delegation to juniors. Your case, in expert hands from day one.',
+    'dif-3-title': 'Solutions, not reports',
+    'dif-3-desc': 'We deliver actionable strategies and implementation support, not just technical documents that end up in a drawer.',
+    'dif-4-title': 'Multidisciplinary vision',
+    'dif-4-desc': 'We integrate taxation with business strategy, commercial law, and financial planning for a complete 360° view.',
+    // Process
+    'proc-label': 'How we work',
+    'proc-title': 'Our <em>work process</em>',
+    'step-1-name': 'Diagnosis',
+    'step-1-desc': 'Comprehensive analysis of the current tax situation, identifying risks and improvement opportunities.',
+    'step-2-name': 'Strategy',
+    'step-2-desc': 'Design of the optimal solution, evaluating alternatives and their fiscal, financial and legal impact.',
+    'step-3-name': 'Implementation',
+    'step-3-desc': 'Technical and legal execution with direct support at every stage of the process.',
+    'step-4-name': 'Monitoring',
+    'step-4-desc': 'Continuous follow-up and updates in response to regulatory changes that may affect the defined strategy.',
+    // CTA
+    'cta-label': 'Ready to begin?',
+    'cta-title': 'Your next tax decision<br>deserves <em>the best</em>',
+    'cta-desc': 'Schedule a free consultation and discover how an intelligent tax strategy can transform your company\'s results.',
+    'cta-btn1': 'Schedule free consultation',
+    'cta-btn2': 'Call now',
+    // Contact
+    'contact-label': 'Contact',
+    'contact-title': 'Let\'s talk about your tax situation',
+    'contact-email-label': 'Email',
+    'contact-hours-label': 'Hours',
+    'contact-hours': '24/7 Support',
+    // Footer
+    'footer-copy': '© 2026 TaxStrategic Tax Consulting · All rights reserved',
+    'footer-loc': 'Santiago, Chile',
+    // Chat
+    'chat-title': 'TaxStrategic Assistant',
+    'chat-status': 'Online now',
+    'chat-placeholder': 'Write your query...'
+  }
+};
+
+let currentLang = 'es';
+
+function toggleLang() {
+  currentLang = currentLang === 'es' ? 'en' : 'es';
+  applyTranslations(currentLang);
+  // Update button
+  const btn = document.getElementById('lang-toggle');
+  btn.textContent = currentLang === 'es' ? '🌐 EN' : '🌐 ES';
+  // Add smooth flash effect
+  btn.style.background = 'var(--gold)';
+  btn.style.color = 'var(--cream)';
+  setTimeout(() => { btn.style.background = 'transparent'; btn.style.color = 'var(--gold)'; }, 350);
+}
+
+function applyTranslations(lang) {
+  const t = pageContent[lang];
+  const tn = translations[lang];
+
+  // Nav items via data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (tn[key]) el.textContent = tn[key];
+  });
+
+  // Hero
+  safeHTML('.hero-label', t['hero-label']);
+  safeHTML('.hero h1', t['hero-h1']);
+  safeHTML('.hero-desc', t['hero-desc']);
+  safeText('.hero-actions .btn-primary', t['hero-btn-primary']);
+  safeText('.hero-actions .btn-ghost', t['hero-btn-ghost']);
+  const statLabels = document.querySelectorAll('.stat-label');
+  if (statLabels[0]) statLabels[0].textContent = t['stat-1'];
+  if (statLabels[1]) statLabels[1].textContent = t['stat-2'];
+  if (statLabels[2]) statLabels[2].textContent = t['stat-3'];
+  if (statLabels[3]) statLabels[3].textContent = t['stat-4'];
+  safeHTML('.hero-quote p', t['hero-quote']);
+  safeText('.hero-quote cite', t['hero-quote-cite']);
+
+  // Services
+  const servicesLabel = document.querySelector('#servicios .section-label');
+  if (servicesLabel) servicesLabel.textContent = t['services-label'];
+  const serviceTitle = document.querySelector('#servicios .section-title');
+  if (serviceTitle) serviceTitle.innerHTML = t['services-title'];
+
+  const svcNames = document.querySelectorAll('.service-name');
+  const svcDescs = document.querySelectorAll('.service-desc');
+  const svcLinks = document.querySelectorAll('.service-link');
+  const svcKeys = ['svc-1','svc-2','svc-3','svc-4','svc-5','svc-6'];
+  svcKeys.forEach((k, i) => {
+    if (svcNames[i]) svcNames[i].textContent = t[k+'-name'];
+    if (svcDescs[i]) svcDescs[i].textContent = t[k+'-desc'];
+    if (svcLinks[i]) svcLinks[i].textContent = t['svc-more'];
+  });
+
+  // Differentiator
+  const difLabel = document.querySelector('#diferencial .section-label');
+  if (difLabel) difLabel.textContent = t['dif-label'];
+  const difTitle = document.querySelector('#diferencial .section-title');
+  if (difTitle) difTitle.innerHTML = t['dif-title'];
+  const difTitles = document.querySelectorAll('.dif-title');
+  const difDescs = document.querySelectorAll('.dif-desc');
+  ['1','2','3','4'].forEach((n,i) => {
+    if (difTitles[i]) difTitles[i].textContent = t['dif-'+n+'-title'];
+    if (difDescs[i]) difDescs[i].textContent = t['dif-'+n+'-desc'];
+  });
+
+  // Process
+  const procLabel = document.querySelector('#proceso .section-label');
+  if (procLabel) procLabel.textContent = t['proc-label'];
+  const procTitle = document.querySelector('#proceso .section-title');
+  if (procTitle) procTitle.innerHTML = t['proc-title'];
+  const stepNames = document.querySelectorAll('.step-name');
+  const stepDescs = document.querySelectorAll('.step-desc');
+  ['1','2','3','4'].forEach((n,i) => {
+    if (stepNames[i]) stepNames[i].textContent = t['step-'+n+'-name'];
+    if (stepDescs[i]) stepDescs[i].textContent = t['step-'+n+'-desc'];
+  });
+
+  // CTA section
+  const ctaSection = document.querySelector('.cta-section');
+  if (ctaSection) {
+    safeText('.cta-section .section-label', t['cta-label']);
+    safeHTML('.cta-title', t['cta-title']);
+    safeText('.cta-desc', t['cta-desc']);
+    safeText('.cta-section .btn-gold', t['cta-btn1']);
+    safeText('.cta-section .btn-outline-cream', t['cta-btn2']);
+  }
+
+  // Contact
+  const contactLabel = document.querySelector('#contacto .section-label');
+  if (contactLabel) contactLabel.textContent = t['contact-label'];
+  const contactTitle = document.querySelector('.contact-intro');
+  if (contactTitle) contactTitle.textContent = t['contact-title'];
+  const contactItems = document.querySelectorAll('.contact-item-label');
+  const contactVals = document.querySelectorAll('.contact-item-val');
+  if (contactItems[0]) contactItems[0].textContent = t['contact-email-label'];
+  if (contactItems[1]) contactItems[1].textContent = t['contact-hours-label'];
+  if (contactVals[1]) contactVals[1].textContent = t['contact-hours'];
+
+  // Footer
+  const footerPs = document.querySelectorAll('footer p');
+  if (footerPs[0]) footerPs[0].textContent = t['footer-copy'];
+  if (footerPs[1]) footerPs[1].textContent = t['footer-loc'];
+
+  // Chat widget
+  safeText('.chat-hname', t['chat-title']);
+  safeText('.chat-hstatus', t['chat-status']);
+  const cinput = document.getElementById('cinput');
+  if (cinput) cinput.placeholder = t['chat-placeholder'];
+
+  // Update html lang attr
+  document.documentElement.lang = lang;
+}
+
+function safeText(selector, value) {
+  const el = document.querySelector(selector);
+  if (el && value) el.textContent = value;
+}
+function safeHTML(selector, value) {
+  const el = document.querySelector(selector);
+  if (el && value) el.innerHTML = value;
 }
 </script>
 
